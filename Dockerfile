@@ -11,3 +11,5 @@ RUN docker-php-ext-install zip
 RUN docker-php-ext-install gd
 
 RUN a2enmod rewrite
+
+RUN mv /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
