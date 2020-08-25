@@ -14,3 +14,4 @@ RUN a2enmod rewrite
 
 RUN mv /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
 
+RUN sed -i 's/disable_functions =/disable_functions = exec,system,passthru,popen,proc_open,shell_exec/g' /usr/local/etc/php/php.ini
