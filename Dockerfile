@@ -10,6 +10,8 @@ RUN docker-php-ext-install zip
 
 RUN docker-php-ext-install gd
 
+RUN docker-php-ext-install exif
+
 RUN a2enmod rewrite
 
 RUN mv /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
