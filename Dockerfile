@@ -2,7 +2,7 @@ FROM php:7.4-apache
 
 RUN docker-php-ext-install mysqli
 
-RUN apt-get update -y && apt-get install -y vim sendmail libpng-dev libonig-dev libzip-dev libxml2-dev zlib1g-dev mailutils php-redis
+RUN apt-get update -y && apt-get install -y vim sendmail libpng-dev libonig-dev libzip-dev libxml2-dev zlib1g-dev mailutils
 
 RUN docker-php-ext-install mbstring
 
@@ -11,6 +11,10 @@ RUN docker-php-ext-install zip
 RUN docker-php-ext-install gd
 
 RUN docker-php-ext-install exif
+
+RUN pecl install -o -f redis \
+    &&  rm -rf /tmp/pear \
+    &&  docker-php-ext-enable redis
 
 RUN a2enmod rewrite
 
