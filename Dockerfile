@@ -7,7 +7,7 @@ RUN apt-get update -y && apt-get install -y vim sendmail libpng-dev libonig-dev 
 RUN docker-php-ext-install mbstring
 
 RUN docker-php-ext-install zip
-RUN docker-php-ext-configure gd --enable-gd --with-jpeg
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp
 RUN docker-php-ext-install gd
 
 RUN docker-php-ext-install exif
